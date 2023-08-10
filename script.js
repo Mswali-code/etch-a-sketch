@@ -1,24 +1,13 @@
-const userInput = prompt("Enter number of squares per side for the grid.");
-const inputButton = document.querySelector("#button");
-
-function createUserGrid() {
-    array.forEach(element => {
-        
-    });
-};
-
 const container = document.querySelector(".container");
-const size = 30;
+const maxSize = 100;
 
-function createDivSquares () {
-    for(let i = 1; i <= 16; i ++) {
+function createDivSquares(numOfSquares) {
+    for(let i = 1; i <= numOfSquares; i++) {
         let row = document.createElement("div");
 
-        for (let j = 1; j <= 16; j ++) {
+        for (let j = 1; j <= numOfSquares; j++) {
             const square = document.createElement("div");
-            square.style.width = size + "px";
-            square.style.height = size + "px";
-            square.style.border = "1px solid gray";
+            square.className = "square";
 
             square.addEventListener("mouseover", () => {
                 square.style.backgroundColor = "black";
@@ -34,5 +23,21 @@ function createDivSquares () {
         container.appendChild(row);
     }
 };
-createDivSquares();
+createDivSquares(16);
 
+const resizeButton = document.querySelector("#resizeButton");
+
+resizeButton.addEventListener("click", () => {
+    const newSize = prompt("Enter number of squares per side for the new grid(maximum is 100):");
+    if (newSize !== null) {
+        const newSizeInt = parseInt(newSize);
+
+        if (!isNaN(newSizeInt) && newSizeInt > 0 && newSizeInt <= maxSize) {
+            container.innerHTML = "";
+            createDivSquares(newSizeInt);    
+        } else {
+            alert("Please enter a valid positive number between 1 and 100.")
+        }
+    }
+});
+//COMING BACK TO WRITE A COMMIT FOR Add a button to the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed and a new grid should be generated in the same total space as before (e.g. 960px wide) so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100
