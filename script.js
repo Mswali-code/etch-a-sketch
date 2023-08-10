@@ -1,6 +1,13 @@
 const container = document.querySelector(".container");
 const maxSize = 100;
 
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`;
+}
+
 function createDivSquares(numOfSquares) {
     for(let i = 1; i <= numOfSquares; i++) {
         let row = document.createElement("div");
@@ -10,12 +17,8 @@ function createDivSquares(numOfSquares) {
             square.className = "square";
 
             square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = "black";
+                square.style.backgroundColor = getRandomColor();
             });
-
-           /* square.addEventListener("mouseout", () => {
-                square.style.backgroundColor = "";
-            });*/
 
             row.appendChild(square);
         }
@@ -28,7 +31,7 @@ createDivSquares(16);
 const resizeButton = document.querySelector("#resizeButton");
 
 resizeButton.addEventListener("click", () => {
-    const newSize = prompt("Enter number of squares per side for the new grid(maximum is 100):");
+    const newSize = prompt("Enter number of squares per side for the new grid (maximum is 100):");
     if (newSize !== null) {
         const newSizeInt = parseInt(newSize);
 
@@ -40,4 +43,3 @@ resizeButton.addEventListener("click", () => {
         }
     }
 });
-//COMING BACK TO WRITE A COMMIT FOR Add a button to the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed and a new grid should be generated in the same total space as before (e.g. 960px wide) so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100
