@@ -1,5 +1,14 @@
+const userInput = prompt("Enter number of squares per side for the grid.");
+const inputButton = document.querySelector("#button");
+
+function createUserGrid() {
+    array.forEach(element => {
+        
+    });
+};
+
 const container = document.querySelector(".container");
-const size = 50;
+const size = 30;
 
 function createDivSquares () {
     for(let i = 1; i <= 16; i ++) {
@@ -9,7 +18,15 @@ function createDivSquares () {
             const square = document.createElement("div");
             square.style.width = size + "px";
             square.style.height = size + "px";
-            square.style.backgroundColor = "blue";
+            square.style.border = "1px solid gray";
+
+            square.addEventListener("mouseover", () => {
+                square.style.backgroundColor = "black";
+            });
+
+           /* square.addEventListener("mouseout", () => {
+                square.style.backgroundColor = "";
+            });*/
 
             row.appendChild(square);
         }
