@@ -1,5 +1,5 @@
 const container = document.querySelector(".container");
-const maxSize = 100;
+const maxSize = 60;
 
 function getRandomColor() {
     const r = Math.floor(Math.random() * 256);
@@ -9,6 +9,9 @@ function getRandomColor() {
 }
 
 function createDivSquares(numOfSquares) {
+    //container.style.setProperty('--numOfSquares', numOfSquares);
+    //container.style.setProperty('--flexBasisValue', 100 / numOfSquares + 'px');
+    
     for(let i = 1; i <= numOfSquares; i++) {
         let row = document.createElement("div");
 
@@ -28,10 +31,21 @@ function createDivSquares(numOfSquares) {
 };
 createDivSquares(16);
 
-const resizeButton = document.querySelector("#resizeButton");
+container.addEventListener("mouseout", () => {
+    const squares = document.querySelectorAll(".square");
+
+    if (!container.contains(event.relatedTarget)) {
+        const squares = document.querySelectorAll(".square");
+        squares.forEach(square => {
+            square.style.backgroundColor = "";
+        });
+    }
+});
+
+const resizeButton = document.querySelector("#resize-button");
 
 resizeButton.addEventListener("click", () => {
-    const newSize = prompt("Enter number of squares per side for the new grid (maximum is 100):");
+    const newSize = prompt("Enter number of squares per side for the new grid (maximum is 60):");
     if (newSize !== null) {
         const newSizeInt = parseInt(newSize);
 
@@ -42,4 +56,11 @@ resizeButton.addEventListener("click", () => {
             alert("Please enter a valid positive number between 1 and 100.")
         }
     }
+});
+
+const resetButton = document.querySelector("#reset-button");
+
+resetButton.addEventListener("click", () => {
+    container.innerHTML = ""; 
+    createDivSquares(16);
 });
