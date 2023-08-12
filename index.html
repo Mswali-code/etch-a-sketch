@@ -5,13 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Etch a sketch</title>
   <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script> 
 </head>
 <body class="body">
 
-  <button id="resizeButton">Resize button</button>
+  <header class="header">
 
-  <div class="container"></div>
+      <h1 class="title">Etch a Sketch</h1>
+
+      <div class="sketch-instruction">Hover the mouse to sketch in the grid</div>
+
+  </header>
+
+  <div class="content">
+
+    <div class="right-content">
+    
+        <div class="slider-text">Slide to Size Grid</div>
+
+        <div class="slider-content">
+
+            <div class="slider-container">
+              <span id="slider-value">16</span>
+              <input type="range" id="resize-slider" min="1" max="60" value="16">
+            </div>
+
+        </div>
+      
+        <button id="reset-button">Reset Grid</button>
+      
+    </div>
+
+    <div class="container"></div>
+
+  </div>
+
+  <footer class="copyright">
+    By Mswali-code! || Github
+  </footer>
+
+  <script src="script.js" defer></script> 
 
 </body>
 </html>
