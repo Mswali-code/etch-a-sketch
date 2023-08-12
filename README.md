@@ -9,6 +9,6 @@ A simple Etch-a-Sketch web application built using HTML, CSS, and JavaScript. Yo
 - Resize the grid to different dimensions
 - Reset button to clear the sketch
 
-##Live Demo
+## Live Demo
 [View Live Demo](https://mswali-code.github.io/etch-a-sketch/)
 
