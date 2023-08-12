@@ -9,26 +9,24 @@ function getRandomColor() {
 }
 
 function createDivSquares(numOfSquares) {
-    //container.style.setProperty('--numOfSquares', numOfSquares);
-    //container.style.setProperty('--flexBasisValue', 100 / numOfSquares + 'px');
-    
-    for(let i = 1; i <= numOfSquares; i++) {
-        let row = document.createElement("div");
 
-        for (let j = 1; j <= numOfSquares; j++) {
-            const square = document.createElement("div");
-            square.className = "square";
+    container.innerHTML = "";
 
-            square.addEventListener("mouseover", () => {
-                square.style.backgroundColor = getRandomColor();
-            });
+    container.style.gridTemplateColumns = `repeat(${numOfSquares}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${numOfSquares}, 1fr)`;
 
-            row.appendChild(square);
-        }
+    for (let i = 1; i <= numOfSquares * numOfSquares; i++) {
+        const square = document.createElement("div");
+        square.className = "square";
 
-        container.appendChild(row);
+        square.addEventListener("mouseover", () => {
+            square.style.backgroundColor = getRandomColor();
+        });
+
+        container.appendChild(square);
     }
 };
+    
 createDivSquares(16);
 
 container.addEventListener("mouseout", () => {
@@ -42,10 +40,23 @@ container.addEventListener("mouseout", () => {
     }
 });
 
-const resizeButton = document.querySelector("#resize-button");
+const resizeSlider = document.querySelector("#resize-slider");
+const sliderValueSpan = document.querySelector("#slider-value")
 
-resizeButton.addEventListener("click", () => {
-    const newSize = prompt("Enter number of squares per side for the new grid (maximum is 60):");
+resizeSlider.addEventListener("input", () => {
+    const newSize = resizeSlider.value;
+    sliderValueSpan.textContent = newSize; 
+    const sliderWidth = resizeSlider.offsetWidth;
+    const sliderMin = parseInt(resizeSlider.min);
+    const sliderMax = parseInt(resizeSlider.max);
+    const percent = (newSize - sliderMin) / (sliderMax - sliderMin);
+    const newPosition = percent * sliderWidth;
+    sliderValueSpan.style.left = newPosition + "px";
+
+    createDivSquares(newSize);
+});
+    
+    /*const newSize = prompt("Enter number of squares per side for the new grid (maximum is 60):");
     if (newSize !== null) {
         const newSizeInt = parseInt(newSize);
 
@@ -55,8 +66,8 @@ resizeButton.addEventListener("click", () => {
         } else {
             alert("Please enter a valid positive number between 1 and 100.")
         }
-    }
-});
+    }*/
+
 
 const resetButton = document.querySelector("#reset-button");
 
