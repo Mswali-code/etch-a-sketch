@@ -10,5 +10,5 @@ A simple Etch-a-Sketch web application built using HTML, CSS, and JavaScript. Yo
 - Reset button to clear the sketch
 
 ## Demo
-![Sketch Demo]() 
+![Sketch Demo](https://mswali-code.github.io/etch-a-sketch/) 
 
