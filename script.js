@@ -46,28 +46,17 @@ const sliderValueSpan = document.querySelector("#slider-value")
 resizeSlider.addEventListener("input", () => {
     const newSize = resizeSlider.value;
     sliderValueSpan.textContent = newSize; 
+
     const sliderWidth = resizeSlider.offsetWidth;
     const sliderMin = parseInt(resizeSlider.min);
     const sliderMax = parseInt(resizeSlider.max);
     const percent = (newSize - sliderMin) / (sliderMax - sliderMin);
+    
     const newPosition = percent * sliderWidth;
     sliderValueSpan.style.left = newPosition + "px";
 
     createDivSquares(newSize);
 });
-    
-    /*const newSize = prompt("Enter number of squares per side for the new grid (maximum is 60):");
-    if (newSize !== null) {
-        const newSizeInt = parseInt(newSize);
-
-        if (!isNaN(newSizeInt) && newSizeInt > 0 && newSizeInt <= maxSize) {
-            container.innerHTML = "";
-            createDivSquares(newSizeInt);    
-        } else {
-            alert("Please enter a valid positive number between 1 and 100.")
-        }
-    }*/
-
 
 const resetButton = document.querySelector("#reset-button");
 
