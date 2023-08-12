@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    font-weight: 700;
+    text-align: center;
+    font-size: 60px;
+    margin: 30px;
+}
+
+.body {
+    background-color: lightgrey;
+    height: 100vh;
+}
+
+/*.container {
+    width: 480px; 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / var(--numOfSquares, 16)), 1fr));
+    grid-gap: 1px;
+    margin: 0 auto;
+    border: 2px solid #333; 
+    box-sizing: border-box; 
+}*/
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    margin-right: 5em;
+}
+
+.slider-container {
+    position: relative;
+}
+
+#slider-value {
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #3882f6;
+}
+
+#resize-slider {
+    width: 300px;
+}
+
+#reset-button {
+    font-size: 30px;
+    background-color: white;
+}
+
+.container {
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #333;
+    grid-gap: 1px; /* Gap between squares */
+    background-color: #f0f0f0;
+  }
+  
+  /* Style the squares */
+  .square {
+    width: 100%; /* Each square occupies the entire cell */
+    height: 100%;
+    background-color: white; /* Default background color */
+    transition: background-color 0.2s ease-in-out; /* Smooth transition on hover */
+    border: 1px solid grey; 
+  }
+
+  
+
+/*.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    border: 2px solid #333;
+    box-sizing: border-box;
+}
+
+.square {
+    width: 30px;
+    height: 30px;
+    flex: 1 1 0;
+    background-color: white;
+    transition: background-color 0.3s ease-in-out;
+    border: 1px solid grey; 
+}*/
